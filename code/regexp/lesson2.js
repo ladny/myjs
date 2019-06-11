@@ -1,6 +1,5 @@
 export default (s,p)=>{
-
-    //递归
+   //递归
     let isMatch=(s,p)=>{
         //边界情况，如果s和p都为空，说明处理结束了，返回true否则返回false
         if(p.length<=0){
@@ -17,13 +16,11 @@ export default (s,p)=>{
             //第一种情况：s*匹配0个字符 || 
             //第二种情况：s*匹配一个字符，递归下去，用来表示s*匹配多个s
           return isMatch(s,p.slice(2)) || (match && isMatch(s.slice(1),p))
-
         }else{
             //无模式
             return match && isMatch(s.slice(1),p.slice(1))
         }
 
     }
-
     return isMatch(s,p)
 }
